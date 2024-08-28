@@ -1,11 +1,20 @@
+import Model.Formating.FileWriter.FileHandler;
+import Model.Formating.FileWriter.Writer;
+import Model.Service;
+import Presenter.Presenter;
 import View.View;
 import View.ConsoleUI;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-        View view = new ConsoleUI(null);
+        Writer writer = new FileHandler();
+
+        Service service = new Service(writer);
+
+        Presenter presenter = new Presenter(service);
+
+        View view = new ConsoleUI(presenter);
 
         view.mainLoop();
     }

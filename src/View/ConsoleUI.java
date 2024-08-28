@@ -36,10 +36,22 @@ public class ConsoleUI implements View{
         startApp();
 
         while (this.isRun){
+            askQuestions(this.presenter.getQuestions());
+
             String userInput = input(this.consoleName);
 
             execute(userInput);
         }
+    }
+
+    private void askQuestions(ArrayList<String> questions){
+        System.out.print("\nPlease enter the following: ");
+
+        for (int index = 0; index < questions.size() - 1; index++){
+            System.out.printf("%s, ", questions.get(index));
+        }
+
+        System.out.println(questions.getLast() + ".");
     }
 
     private void printEmptyLine(){
@@ -47,7 +59,7 @@ public class ConsoleUI implements View{
     }
 
     private String input(String message){
-        System.out.printf("%s: ", message);
+        System.out.printf("\n%s: ", message);
 
         String userInput = scanner.nextLine();
 
@@ -76,8 +88,15 @@ public class ConsoleUI implements View{
         System.out.printf("\t%s: %s\n", exception.getClass().getSimpleName(), exception.getMessage());
     }
 
+    private void printSuccessful(){
+        System.out.println("\tSuccessful");
+    }
+
     private void sendUserInput(String userInput){
         try {
+            this.presenter.sendUserInput(userInput);
+
+            printSuccessful();
 
         } catch (Exception exception){
             printError(exception);
