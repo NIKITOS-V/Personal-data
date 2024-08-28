@@ -55,12 +55,7 @@ public class FileHandler implements Writer {
     }
 
     @Override
-    public String getDirName() {
-        return this.dirName;
-    }
-
-    @Override
-    public void save(ArrayList<Data> personalData) throws UncorrectedFileName, IOException {
+    public void save(ArrayList<Data> personalData) throws IOException {
         String listForSave = createSequence(personalData);
 
         String fileName = getFileName(personalData);
