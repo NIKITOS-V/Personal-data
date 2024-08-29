@@ -1,6 +1,6 @@
 package Model.PersonalDatas.Datas;
 
-import Model.Formating.Exceptions.UnknownGender;
+import Model.Formating.Exceptions.UGender;
 import Model.PersonalDatas.Data;
 import Model.PersonalDatas.DataType;
 
@@ -14,7 +14,7 @@ public class Gender extends Data {
     private genderType gender;
 
     public Gender(){
-        super(DataType.Gender);
+        super(DataType.Gender, "Gender");
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Gender extends Data {
             this.gender = genderType.m;
 
         } else {
-            throw new UnknownGender();
+            throw new UGender();
         }
 
     }

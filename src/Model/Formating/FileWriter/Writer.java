@@ -1,6 +1,5 @@
 package Model.Formating.FileWriter;
 
-import Model.Formating.Exceptions.UncorrectedFileName;
 import Model.PersonalDatas.Data;
 
 import java.io.IOException;

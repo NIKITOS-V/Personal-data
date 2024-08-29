@@ -1,6 +1,6 @@
 package Model;
 
-import Model.Formating.Exceptions.UncorrectedInput;
+import Model.Formating.Exceptions.UInput;
 import Model.Formating.FileWriter.Writer;
 import Model.PersonalDatas.Data;
 import Model.PersonalDatas.Datas.*;
@@ -38,7 +38,7 @@ public class Service {
         Collections.shuffle(this.personalData);
 
         for (Data data: this.personalData){
-            questions.add(data.getDataName());
+            questions.add(data.getQuestion());
         }
 
         return questions;
@@ -48,10 +48,10 @@ public class Service {
         ArrayList<String> splitInput = new ArrayList<>(List.of(userInput.split(" ")));
 
         if (splitInput.size() > this.personalData.size()){
-            throw new UncorrectedInput("The input is too long");
+            throw new UInput("The input is too long");
 
         } else if (splitInput.size() < this.personalData.size()){
-            throw new UncorrectedInput("The input is too small");
+            throw new UInput("The input is too small");
 
         } else {
             ArrayList<Data> dataForSave = new ArrayList<>();

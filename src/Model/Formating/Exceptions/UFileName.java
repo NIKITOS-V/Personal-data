@@ -2,12 +2,12 @@ package Model.Formating.Exceptions;
 
 import java.io.IOException;
 
-public class UncorrectedFileName extends IOException {
-    public UncorrectedFileName(String message){
+public class UFileName extends IOException {
+    public UFileName(String message){
         super(message);
     }
 
-    public UncorrectedFileName(){
+    public UFileName(){
         this("Uncorrected file name");
     }
 }

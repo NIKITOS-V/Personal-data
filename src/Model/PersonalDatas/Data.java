@@ -3,14 +3,20 @@ package Model.PersonalDatas;
 import java.io.IOException;
 
 public abstract class Data {
-    private final String dataName;
+    private final DataType type;
+    private final String question;
 
-    public Data(DataType dataType){
-        this.dataName = dataType.toString();
+    public Data(DataType type, String question){
+        this.type = type;
+        this.question = question;
     }
 
-    public String getDataName() {
-        return dataName;
+    public DataType getType() {
+        return type;
+    }
+
+    public String getQuestion(){
+        return this.question;
     }
 
     public abstract void processUserInput(String userInput) throws IOException;

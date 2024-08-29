@@ -2,12 +2,12 @@ package Model.Formating.Exceptions;
 
 import java.io.IOException;
 
-public class UnknownGender extends IOException {
-    public UnknownGender(String message){
+public class UGender extends IOException {
+    public UGender(String message){
         super(message);
     }
 
-    public UnknownGender(){
+    public UGender(){
         this("Unknown gender");
     }
 }

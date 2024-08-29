@@ -2,12 +2,12 @@ package Model.Formating.Exceptions;
 
 import java.io.IOException;
 
-public class UncorrectedInput extends IOException {
-    public UncorrectedInput(String message){
+public class UInput extends IOException {
+    public UInput(String message){
         super(message);
     }
 
-    public UncorrectedInput(){
+    public UInput(){
         this("Uncorrected Input");
     }
 }

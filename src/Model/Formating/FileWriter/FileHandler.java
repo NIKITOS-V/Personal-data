@@ -1,10 +1,11 @@
 package Model.Formating.FileWriter;
 
-import Model.Formating.Exceptions.UncorrectedFileName;
+import Model.Formating.Exceptions.UFileName;
 import Model.PersonalDatas.Data;
 import Model.PersonalDatas.DataType;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class FileHandler implements Writer {
 
         for (DataType necessaryType: this.sequenceForSave){
             for (Data data: personalData){
-                if (data.getDataName().equals(necessaryType.toString())){
+                if (data.getType().equals(necessaryType)){
                     info.append(data.getValue()).append(" ");
 
                     break;
@@ -44,14 +45,14 @@ public class FileHandler implements Writer {
         return info.toString();
     }
 
-    private String getFileName(ArrayList<Data> personalData) throws UncorrectedFileName{
+    private String getFileName(ArrayList<Data> personalData) throws UFileName {
         for (Data data: personalData){
-            if (data.getDataName().equals(DataType.Surname.toString())) {
+            if (data.getType().equals(DataType.Surname)) {
                 return data.getValue();
             }
         }
 
-        throw new UncorrectedFileName("Surname was not found");
+        throw new UFileName("Surname was not found");
     }
 
     @Override
@@ -67,6 +68,9 @@ public class FileHandler implements Writer {
 
             bufferedWriter.write(listForSave);
             bufferedWriter.newLine();
+
+        } catch (FileNotFoundException exception){
+            throw new UFileName();
         }
     }
 }

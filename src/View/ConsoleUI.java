@@ -85,7 +85,7 @@ public class ConsoleUI implements View{
     }
 
     private void printError(Exception exception){
-        System.out.printf("\t%s: %s\n", exception.getClass().getSimpleName(), exception.getMessage());
+        System.out.printf("\tERROR: %s\n", exception.getMessage());
     }
 
     private void printSuccessful(){

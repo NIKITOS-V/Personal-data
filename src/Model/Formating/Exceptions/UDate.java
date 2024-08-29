@@ -2,12 +2,12 @@ package Model.Formating.Exceptions;
 
 import java.io.IOException;
 
-public class UncorrectedDate extends IOException {
-    public UncorrectedDate(String message){
+public class UDate extends IOException {
+    public UDate(String message){
         super(message);
     }
 
-    public UncorrectedDate(){
+    public UDate(){
         this("Uncorrected date");
     }
 }

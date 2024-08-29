@@ -7,7 +7,7 @@ public class Patronymic extends Data {
     private String value;
 
     public Patronymic(){
-        super(DataType.Patronymic);
+        super(DataType.Patronymic, "Patronymic");
     }
 
     @Override

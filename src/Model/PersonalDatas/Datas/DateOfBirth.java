@@ -1,6 +1,6 @@
 package Model.PersonalDatas.Datas;
 
-import Model.Formating.Exceptions.UncorrectedDate;
+import Model.Formating.Exceptions.UDate;
 import Model.PersonalDatas.Data;
 import Model.PersonalDatas.DataType;
 
@@ -12,7 +12,7 @@ public class DateOfBirth extends Data {
     private String date;
 
     public DateOfBirth(){
-        super(DataType.Date_of_birth);
+        super(DataType.Date_of_birth, "Data of birth");
     }
 
 
@@ -32,13 +32,13 @@ public class DateOfBirth extends Data {
             );
 
             if (!this.date.equals(userInput)) {
-                throw new UncorrectedDate("Uncorrected date format");
+                throw new UDate("Uncorrected date format");
             }
-        } catch (UncorrectedDate exception){
-            throw new UncorrectedDate(exception.getMessage());
+        } catch (UDate exception){
+            throw new UDate(exception.getMessage());
 
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException exception){
-            throw new UncorrectedDate("Uncorrected data format");
+            throw new UDate("Uncorrected data format");
         }
     }
 

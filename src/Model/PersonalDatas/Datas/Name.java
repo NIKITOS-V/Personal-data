@@ -7,7 +7,7 @@ public class Name extends Data {
     private String value;
 
     public Name(){
-        super(DataType.Name);
+        super(DataType.Name, "Name");
     }
 
     @Override

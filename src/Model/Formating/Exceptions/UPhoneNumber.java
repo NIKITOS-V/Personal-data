@@ -2,12 +2,12 @@ package Model.Formating.Exceptions;
 
 import java.io.IOException;
 
-public class UncorrectedPhoneNumber extends IOException {
-    public UncorrectedPhoneNumber(String message){
+public class UPhoneNumber extends IOException {
+    public UPhoneNumber(String message){
         super(message);
     }
 
-    public UncorrectedPhoneNumber(){
+    public UPhoneNumber(){
         this("Uncorrected phone number");
     }
 }
